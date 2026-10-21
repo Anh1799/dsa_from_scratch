@@ -55,6 +55,21 @@ class Graph:
 
         visit(start)
         return result
+    
+    def remove_edge(self, u, v):
+        if u not in self.adj or v not in self.adj:
+            return False
+
+        if v not in self.adj[u]:
+          return False
+
+        self.adj[u].remove(v)
+
+        if u != v:
+           self.adj[v].remove(u)
+
+        return True
+
 
 
 graph = Graph()
